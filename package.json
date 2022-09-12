@@ -1,0 +1,145 @@
+{
+	"name": "uniapp-ifdef-display",
+	"displayName": "uniapp-ifdef-display",
+	"description": "可控制uniapp条件编译的代码置灰显示",
+	"keywords": [
+		"uniapp",
+		"ifdef",
+		"条件编译",
+		"小程序",
+		"微信小程序"
+	],
+	"version": "0.0.1",
+	"publisher": "holychen555",
+	"engines": {
+		"vscode": "^1.17.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+        "onLanguage:html",
+		"onLanguage:vue",
+        "onLanguage:javascript",
+        "onLanguage:typescript",
+        "onLanguage:css",
+        "onLanguage:sass",
+        "onLanguage:scss",
+        "onLanguage:json"
+	],
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/holychen555/uniapp-ifdef-display"
+	},
+	"bugs": "https://github.com/holychen555/uniapp-ifdef-display/issues",
+	"main": "./dist/extension",
+	"license": "MIT",
+	"scripts": {
+		"vscode:prepublish": "cross-env NODE_ENV=production webpack --mode production",
+		"dev": "cross-env NODE_ENV=development webpack --mode development --watch",
+		"test": "node ./test/runTest.js"
+	},
+	"icon": "uniapp.png",
+	"contributes": {
+		"menus": {
+			"editor/title": [
+				{
+					"command": "ifdefdisplay.showQuickPick",
+					"group": "navigation",
+					"when": "config.ifdefdisplay.isEnable && hasIfDef"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "ifdefdisplay.showQuickPick",
+				"title": "请选择%PLATFORM%",
+				"icon": "./assets/icon.svg"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "uniapp-ifdef-display",
+			"properties": {
+				"ifdefdisplay.platformArr": {
+					"type": "array",
+					"default": [
+						"MP-WEIXIN"
+					],
+					"description": "Set the platforms"
+				},
+				"ifdefdisplay.isEnable": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable or disable the ifdefdisplay"
+				},
+				"ifdefdisplay.darkColor": {
+					"type": "string",
+					"default": "#333",
+					"description": "Set dark mode color"
+				},
+				"ifdefdisplay.lightColor": {
+					"type": "string",
+					"default": "#ddd",
+					"description": "Set light mode color"
+				}
+			}
+		},
+		"languages": [
+            {
+                "id": "vue",
+                "extensions": [ ".vue" ]
+            },
+			{
+				"id": "vue-html"
+			},
+			{
+				"id": "sass",
+                "extensions": [ ".sass" ]
+			},
+			{
+				"id": "scss",
+                "extensions": [ ".scss" ]
+			}
+		],
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/javascript.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./snippets/javascript.json"
+			},
+			{
+				"language": "vue-html",
+				"path": "./snippets/vue-html.json"
+			},
+			{
+				"language": "css",
+				"path": "./snippets/style.json"
+			},
+			{
+				"language": "sass",
+				"path": "./snippets/style.json"
+			},
+			{
+				"language": "scss",
+				"path": "./snippets/style.json"
+			}
+		]
+	},
+	"dependencies": {
+		"xregexp": "3.1.0"
+	},
+	"devDependencies": {
+		"@vscode/test-electron": "^2.1.5",
+		"clean-webpack-plugin": "^4.0.0",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.23.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0"
+	}
+}

@@ -1,0 +1,18 @@
+<!-- #ifdef MP-WEIXIN || MP-BAIDU -->
+1
+    <!-- #ifdef MP-WEIXIN -->
+    2
+    <!-- #endif -->
+    <!-- #ifdef MP-BAIDU -->
+    3
+    <!-- #endif -->
+<!-- #endif -->
+<!-- #ifndef MP-WEIXIN -->
+4
+    <!-- #ifdef MP-WEIXIN -->
+    5
+    <!-- #endif -->
+    <!-- #ifdef MP-BAIDU -->
+    6
+    <!-- #endif -->
+<!-- #endif -->

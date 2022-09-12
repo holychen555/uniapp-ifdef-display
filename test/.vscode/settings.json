@@ -1,0 +1,7 @@
+{
+    "ifdefdisplay.isEnable": true,
+    "ifdefdisplay.platformArr": [
+        "MP-WEIXIN"
+    ],
+    "ifdefdisplay.hasIfdef": true
+}

@@ -1,0 +1,18 @@
+{
+    "ifdef": {
+        "prefix": "ifdef",
+        "body": [
+            "// #ifdef ${1|APP-PLUS,H5,MP-WEIXIN,MP-BAIDU,MP-TOUTIAO,MP-KUAISHOU,MP-ALIPAY,MP-QQ,MP|}",
+            "$0",
+            "// #endif"
+        ]
+    },
+    "ifndef": {
+        "prefix": "ifndef",
+        "body": [
+            "// #ifndef ${1|APP-PLUS,H5,MP-WEIXIN,MP-BAIDU,MP-TOUTIAO,MP-KUAISHOU,MP-ALIPAY,MP-QQ,MP|}",
+            "$0",
+            "// #endif"
+        ]
+    }
+}
